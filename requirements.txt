@@ -1,0 +1,15 @@
+pinecone-client[grpc]==3.0.0.dev4
+pandas
+numpy
+pyarrow
+python-dotenv
+tenacity
+ray
+beautifulsoup4
+fastapi
+requests
+langchain_community
+langserve
+langchain_cohere
+openai
+sse_starlette
