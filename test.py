@@ -17,9 +17,10 @@ from langserve import add_routes
 
 load_dotenv()
 
-os.environ["RAY_OVERRIDE_RESOURCES"] = '{"CPU": 1, "memory": 200 * 1024 * 1024}'
-
 ray.init(
+    num_cpus=1,  # Limit the number of CPUs
+    _memory=200 * 1024 * 1024,  # Limit memory to 200 MB for the worker
+    object_store_memory=50 * 1024 * 1024,  # Limit object store memory
     runtime_env={
         "env_vars": {
             "PINECONE_API_KEY": os.getenv("PINECONE_API_KEY"),
