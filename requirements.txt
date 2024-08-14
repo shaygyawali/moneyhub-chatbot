@@ -1,4 +1,4 @@
-pinecone-client[grpc]==3.0.0.dev4
+pinecone-client
 pandas
 numpy
 pyarrow
