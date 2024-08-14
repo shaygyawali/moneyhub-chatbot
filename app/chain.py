@@ -19,7 +19,11 @@ PINECONE_API_KEY = os.environ["PINECONE_API_KEY"]
 PINECONE_ENVIRONMENT = os.environ["PINECONE_ENVIRONMENT"]
 PINECONE_INDEX_NAME = os.environ["PINECONE_INDEX_NAME"]
 
+
 pinecone = PineconeClient(api_key=PINECONE_API_KEY)
+
+if not hasattr(pinecone, '__version__'):
+    pinecone.__version__ = "3.0.0.dev4"
 
 embeddings = CohereEmbeddings(model="multilingual-22-12")
 vectorstore = Pinecone.from_existing_index(index_name=PINECONE_INDEX_NAME, embedding=embeddings)
