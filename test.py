@@ -18,9 +18,11 @@ from langserve import add_routes
 load_dotenv()
 
 ray.init(
+    memory=200 * 1024 * 1024,  # Allocate 200 MB for tasks
+    object_store_memory=50 * 1024 * 1024,  # Allocate 50 MB for object store
     runtime_env={
         "env_vars": {
-          "PINECONE_API_KEY": os.getenv("PINECONE_API_KEY"),
+            "PINECONE_API_KEY": os.getenv("PINECONE_API_KEY"),
         }
     },
 )
